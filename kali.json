@@ -1,7 +1,7 @@
 {
   "variables": {
     "iso_url": "http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
-    "iso_checksum": "007e906947f0cbc2cb7bf63baf78c0be266d4606b01cc276f5dc3375308b1507",
+    "iso_checksum": "82319d96591c72ccd700e8e1e016fedbd89a20b02be568c7d38779f1acf35d99",
     "iso_checksum_type": "sha256",
     "disk_size": "40960",
     "memory_size": "4096",
