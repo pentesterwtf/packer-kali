@@ -1,7 +1,7 @@
 {
   "variables": {
     "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
-    "iso_checksum": "eb83c8234ec857625a9bfbb098c41f0c5148ddb1b45b065fb993c1206f7c9f89",
+    "iso_checksum": "6d90eafdafdbc3623b91d96ba1955708678d010d6edad0c5002644e7d21a5e96",
     "iso_checksum_type": "sha256",
     "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
     "disk_size": "40960",
@@ -24,6 +24,7 @@
       "qemu_binary": "{{ user `qemu_binary`}}",
       "memory": "{{ user `memory_size`}}",
       "disk_size": "{{user `disk_size`}}",
+      "disk_compression": "true",
       "format": "qcow2",
       "http_directory": "http",
       "ssh_username": "root",
