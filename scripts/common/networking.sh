@@ -12,3 +12,6 @@ echo "pre-up sleep 2" >> /etc/network/interfaces
 # Set DHCP for ens5
 echo "auto ens5" >> /etc/network/interfaces
 echo "iface ens5 inet dhcp" >> /etc/network/interfaces
+# Set DHCP for ens3
+echo "auto ens3" >> /etc/network/interfaces
+echo "iface ens3 inet dhcp" >> /etc/network/interfaces
