@@ -1,0 +1,11 @@
+.bundle/
+iso
+*.box
+virtualfloppy.vfd
+packer_cache
+packer.log
+/packer-*/
+*.variables.json
+/builds/
+/output-qemu/
+*.swp
