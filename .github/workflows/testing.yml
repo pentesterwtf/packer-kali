@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Install qemu-kvm
-        run: sudo apt-get update && apt-get install qemu-kvm -y
+        run: sudo apt-get update && sudo apt-get install qemu-kvm -y
 
       # validate templates
       - name: Validate Template
