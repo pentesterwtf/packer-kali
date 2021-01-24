@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "accelerator": "kvm",
+      "accelerator": "{{user `accelerator`}}",
       "boot_command": [
         "<esc><wait>",
         "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
@@ -77,7 +77,8 @@
     "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
     "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
     "memory_size": "4096",
-    "vm_name": "kali-linux-rolling"
+    "vm_name": "kali-linux-rolling",
+    "accelerator": "kvm"
   }
 }
 
