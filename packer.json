@@ -1,55 +1,61 @@
 {
-  "variables": {
-    "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
-    "iso_checksum": "cbb5c606b811b16b8f80ad94d96b5fa1d23b96dd9be916e6f91fbd1eeb38a238",
-    "iso_checksum_type": "sha256",
-    "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
-    "disk_size": "40960",
-    "qemu_binary": "qemu-system-x86_64",
-    "memory_size": "4096",
-    "cpus": "4",
-    "vm_name": "kali-linux-rolling",
-    "headless": "true"
-  },
   "builders": [
     {
-      "type": "qemu",
       "accelerator": "kvm",
-      "iso_url": "{{user `iso_url`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "headless": "{{user `headless`}}",
-      "vm_name": "{{user `vm_name`}}",
-      "cpus": "{{ user `cpus`}}",
-      "qemu_binary": "{{ user `qemu_binary`}}",
-      "memory": "{{ user `memory_size`}}",
-      "disk_size": "{{user `disk_size`}}",
-      "disk_compression": "true",
-      "format": "qcow2",
-      "http_directory": "http",
-      "ssh_username": "root",
-      "ssh_password": "vagrant",
-      "ssh_timeout": "120m",
-      "net_device": "virtio-net",
-      "disk_interface": "virtio",
       "boot_command": [
         "<esc><wait>",
         "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
         "locale=en_US <wait>",
         "keymap=us <wait>",
         "<enter><wait>"
-      ], 
-      "shutdown_command": "",
+      ],
+      "cpus": "{{ user `cpus`}}",
+      "disk_compression": "true",
+      "disk_interface": "virtio",
+      "disk_size": "{{user `disk_size`}}",
+      "format": "qcow2",
+      "headless": "{{user `headless`}}",
+      "http_directory": "http",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "memory": "{{ user `memory_size`}}",
+      "net_device": "virtio-net",
+      "qemu_binary": "{{ user `qemu_binary`}}",
       "qemuargs": [
-           [ "--cpu", "host" ],
-           [ "--no-acpi"],
-           [ "-vga", "qxl" ]
-      ]
+        [
+          "--cpu",
+          "host"
+        ],
+        [
+          "--no-acpi"
+        ],
+        [
+          "-vga",
+          "qxl"
+        ]
+      ],
+      "shutdown_command": "",
+      "ssh_password": "vagrant",
+      "ssh_timeout": "120m",
+      "ssh_username": "root",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "post-processors": [
+    {
+      "keep_input_artifact": true,
+      "only": [
+        "qemu"
+      ],
+      "output": "builds/{{user `vm_name`}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "Vagrantfile.template"
     }
   ],
   "provisioners": [
     {
-      "type": "shell",
+      "pause_before": "10s",
       "scripts": [
         "scripts/common/update.sh",
         "scripts/common/install.sh",
@@ -60,16 +66,20 @@
         "scripts/common/cleanup.sh",
         "scripts/common/minimize.sh"
       ],
-      "pause_before": "10s"
+      "type": "shell"
     }
   ],
-  "post-processors": [
-    {
-      "type": "vagrant",
-      "output" : "builds/{{user `vm_name`}}.box",
-      "only": ["qemu"],
-      "vagrantfile_template": "Vagrantfile.template",
-      "keep_input_artifact": true
-    }
-  ]
+  "variables": {
+    "cpus": "4",
+    "disk_size": "40960",
+    "headless": "true",
+    "iso_checksum": "cbb5c606b811b16b8f80ad94d96b5fa1d23b96dd9be916e6f91fbd1eeb38a238",
+    "iso_checksum_type": "sha256",
+    "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
+    "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
+    "memory_size": "4096",
+    "qemu_binary": "qemu-system-x86_64",
+    "vm_name": "kali-linux-rolling"
+  }
 }
+
