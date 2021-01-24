@@ -20,11 +20,10 @@ jobs:
           target: packer.json
 
       # build artifact
-      - name: Build Artifact
-        uses: operatehappy/packer-github-actions@master
+      - name: Packer build
+        uses: enr0s/packer-qemu-action@v1.0
         with:
-          command: build
-          arguments: "-color=false -on-error=abort"
-          target: packer.json
+          templateFile: 'packer.json'
+          workingDir: '.'
 
       # additional steps to process artifacts
