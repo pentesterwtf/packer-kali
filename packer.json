@@ -78,7 +78,7 @@
     "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
     "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
     "memory_size": "4096",
-    "qemu_binary": "qemu-system-x86_64",
+    "qemu_binary": "qemu-kvm",
     "vm_name": "kali-linux-rolling"
   }
 }
