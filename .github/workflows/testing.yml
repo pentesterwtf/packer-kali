@@ -12,21 +12,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Install qemu-kvm
         run: sudo apt-get update && sudo apt-get install qemu-kvm -y
-
-      # validate templates
-      - name: Validate Template
-        uses: operatehappy/packer-github-actions@master
-        with:
-          command: validate
-          arguments: -syntax-only
-          target: packer.json
-
-      # build artifact
-      - name: Build Artifact
-        uses: operatehappy/packer-github-actions@master
-        with:
-          command: build
-          arguments: "-color=false -on-error=abort"
-          target: packer.json
-
-      # additional steps to process artifacts
+      - name: Validate
+        run: packer validate packer.json 
+      - name: Build
+        run: packer build -color=false -on-error=abort packer.json
