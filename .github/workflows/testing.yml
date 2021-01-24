@@ -15,4 +15,4 @@ jobs:
       - name: Validate
         run: packer validate packer.json 
       - name: Build
-        run: packer build -color=false -on-error=abort packer.json
+        run: PACKER_LOG=1 packer build -color=false -on-error=abort packer.json
