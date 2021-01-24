@@ -20,7 +20,6 @@
       "iso_url": "{{user `iso_url`}}",
       "memory": "{{ user `memory_size`}}",
       "net_device": "virtio-net",
-      "qemu_binary": "{{ user `qemu_binary`}}",
       "qemuargs": [
         [
           "--cpu",
@@ -78,7 +77,6 @@
     "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
     "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
     "memory_size": "4096",
-    "qemu_binary": "qemu-kvm",
     "vm_name": "kali-linux-rolling"
   }
 }
