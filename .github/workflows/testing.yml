@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Install xmllint
-        run: sudo apt-get qemu-kvm -y
+      - name: Install qemu-kvm
+        run: sudo apt-get install qemu-kvm -y
 
       # validate templates
       - name: Validate Template
