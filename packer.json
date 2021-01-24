@@ -50,7 +50,7 @@
   ],
   "provisioners": [
     {
-      "pause_before": "10s",
+      "pause_before": "20s",
       "scripts": [
         "scripts/common/update.sh",
         "scripts/common/install.sh",
