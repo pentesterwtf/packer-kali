@@ -58,8 +58,7 @@
         "scripts/common/networking.sh",
         "scripts/common/vagrant.sh",
         "scripts/kali/custom.sh",
-        "scripts/common/cleanup.sh",
-        "scripts/common/minimize.sh"
+        "scripts/common/cleanup.sh"
       ],
       "type": "shell"
     }
