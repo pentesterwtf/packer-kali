@@ -23,3 +23,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.S3_AWS_SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.S3_AWS_BUCKET }}
           source_dir: 'builds/'
+          destination_dir: ''
