@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: packer build -color=false -on-error=abort -var=accelerator=tcg packer.json
       - name: Upload image to s3
-        name: shallwefootball/s3-upload-action@master
+        uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.S3_AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.S3_AWS_SECRET_ACCESS_KEY}}
