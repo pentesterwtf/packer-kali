@@ -13,17 +13,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Install qemu-kvm
-        run: sudo apt-get update && sudo apt-get install qemu-kvm -y
       - name: Validate
         run: packer validate packer.json 
-      - name: Build
-        run: packer build -color=false -on-error=abort -var=accelerator=tcg packer.json
-      - name: Upload image to s3
-        uses: shallwefootball/s3-upload-action@master
+      - name: Check hash
+        run: ./check.sh
+      - name: Commit change
+        uses: EndBug/add-and-commit@v7
         with:
-          aws_key_id: ${{ secrets.S3_AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.S3_AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.S3_AWS_BUCKET }}
-          source_dir: 'builds/'
-          destination_dir: ''
+          author_name: Github Actions CI
+          author_email: pentesterwtf-ci@c0refailure.com
+          message: 'update hash'
+          add: 'package.json'
