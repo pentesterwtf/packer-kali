@@ -17,7 +17,7 @@ root/vagrant
 
 ## Building
 
-* packer build kali.json
+* packer build packer.json
 * vagrant box add builds/kali-linux-rolling.box
   * Note libvirt keeps disks, might have to delete from filestore if re-adding
   * --force won't help you
