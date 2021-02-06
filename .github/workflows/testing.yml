@@ -23,4 +23,4 @@ jobs:
           author_name: Github Actions CI
           author_email: pentesterwtf-ci@c0refailure.com
           message: 'update hash'
-          add: 'package.json'
+          add: 'packer.json'
