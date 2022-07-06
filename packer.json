@@ -68,7 +68,7 @@
     "cpus": "4",
     "disk_size": "40960",
     "headless": "true",
-    "iso_checksum": "7043d97214086264266b2244e8f9695c8791fc5ce6ecdc87bb11756902727018",
+    "iso_checksum": "dcbdf3d44a30f4dc1d4a618844404129b25762f4fe7f0ec77ddf96ce5865131c",
     "iso_checksum_type": "sha256",
     "iso_checksum_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/SHA256SUMS",
     "iso_url": "https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
